@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&display=swap');
+
+*{
+    margin: auto;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    display:flex;
+    border-bottom: 2px solid black;
+    padding: 5px;
+}
+div{
+    margin: 0;
+}
+.logo_img{
+    height: auto;
+    width: 100px;
+}
+.some_buttons{
+    padding-right: 20px;
+    position: absolute;
+    right: 0;
+}
+.login_class, .signup_class{
+    border:1px solid black;
+    padding: 5px;
+}
+.post_container{
+    color:#000;
+    border: 1px solid black;
+}
+.post_container img{
+  max-height: 300px;
+  max-width: 100%;
+  object-fit: scale-down;
+}
+.content img{
+  object-fit:scale-down;
+  min-width: 200px;
+  min-height: 300px;
+  max-width:900px;
+  max-height:500px;
+}
+.logout_class{
+    border-top: 1px solid black;
+}
+.custom_container{
+    left:50%;
+    right:50%;
+    width: 500px;
+    margin:0 auto;
+    padding-top: 50px;
+}
+.title_class{
+    font-size: 23px;
+    margin-bottom: 2px;
+}
+.content_class{
+    font-size: 15px;
+}
+.title_class, .content_class{
+    padding: 5px;
+}
+
+.tox-notification--warning[role=alert]{
+  display: none !important;
+}
+
+/* Nav Drop down menu */
+ul {
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    background-color: #333;
+    width: 150px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin: 0;
+}
+li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 11px 16px;
+    text-decoration: none;
+}
+li.dropdown {
+    display: inline-block;
+    width: 150px;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:#333;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/* ---------------------------------------------------------------------------------------- */
+.comment-border {
+  border:1px solid blue;
+  max-width: 750px;
+  padding: 6px;
+}
+.reply, #submitComm{
+  display: block;
+  margin: 0px;
+}
+.bark{
+  color:red;
+  border-right: 2px solid green;
+  width: 350px;
+}
+.form-wraper{
+  display: block;
+}
+.author_name{
+  font-style: italic;
+  opacity: 0.5;
+  font-family: 'Kanit', sans-serif;
+}
+.comment_tree{
+  border:2px solid red;
+  border-radius: 5px;
+  margin-bottom:10px;
+  padding: 5px;
+  max-width: 750px;
+}
+.commets_date{
+  font-size: 13px;
+}
+#some_buttons{
+    float: left;
+    margin-top: 11px;
+    margin-right: 20px;
+}
+#texta{
+  resize: none;
+}
