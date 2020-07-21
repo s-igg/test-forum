@@ -256,65 +256,40 @@ function displayComments(){
   }
 }
 
-function comment_tree(){
-    global $conn;
+//comments tree 2.0
+function category_tree($parrent){
+  global $conn;
+  $ID = $_GET['ID'];
+  $sql = "SELECT * FROM comments_2 WHERE post_id = '$ID' AND parent_id='$parrent'";
+  $result = $conn->query($sql);
 
-    $ID = $_GET['ID'];
-    $result = mysqli_query($conn,"SELECT * FROM comments_2 WHERE post_id = '$ID' ");
-
-    $comments = array();
-    while ($row = mysqli_fetch_array($result)) {
-      $row['post_id'] = array();
-      $comments[$row['id']] = $row;
+  while($row = mysqli_fetch_object($result)){
+    $i = 0;
+    if ($row->parent_id == null || $row->parent_id == 0) {
+      echo "<div class='comment-border'>";
     }
-
-
-    //   into its parent_id
-    foreach ($comments as $k => &$v) {
-      if ($v['parent_id'] != 0) {
-        $comments[$v['parent_id']]['post_id'][] =& $v;
-      }
-    }
-    unset($v);
-
-    // delete the thread_id comments from the top level
-    foreach ($comments as $k => $v) {
-      if ($v['parent_id'] != 0) {
-        unset($comments[$k]);
-      }
-    }
-
-  function display_comments(array $comments, $level = 0) {
-
-    foreach ($comments as $info) {
-
-      //adds div around parent comment
-      if ($info['parent_id'] == null || $info['parent_id'] == 0) {
-        echo "<div class='comment_tree'>";
-      }
-      $com= str_repeat("&nbsp-", $level + 1).$info['comment']."</br>";
-    echo   "<div class='comment-border'>
-      <p class='author_name'>".$info['user']."</p>
-      <span class='commets_date'>".$info['created']."</span>
-        <h4 style='margin:0px;'>". $com ."</h4>
-        <div name='testdiv' class='form-container'>
-          <form id='reply-form' method='post' class='reply_form'>
-            <input type='hidden' name='data' value=".$info['id'].">
-            <textarea name='reply_text' id='reply_texta' col='30' rows='10' style='width:150px;height:30px;'></textarea>
-            <button class='reply' type='submit' name='replyy' style='color:blue;'>Reply</button>
+    if ($i == 0){
+        echo '<ul style="list-style:none;padding:0;">
+        <p class="author_name">'.$row->user.'</p>
+        <li><div class=""><h4>' . $row->comment.'</h4>
+        <div name="testdiv" class="form-container">
+          <form id="reply-form" method="post" class="reply_form">
+            <input type="hidden" name="data" value='.$row->id.'>
+            <textarea name="reply_text" id="reply_texta" col="30" rows="10" style="width:150px;height:30px;"></textarea>
+            <button class="reply" type="submit" name="replyy" style="color:blue;">Reply</button>
           </form>
         </div>
-      </div>";
-      if (!empty($info['post_id'])) {
-        display_comments($info['post_id'], $level + 1);
-      }
-
-      //adds div around parent comment
-      if ($info['parent_id'] == null || $info['parent_id'] == 0) {
-        echo "</div>";
-      }
-    }
+        </div>';
+        category_tree($row->id);
+        echo '</li>';
+        $i++;
+     }
+     if ($i > 0) {
+       echo '</ul>';
+     }
+     if ($row->parent_id == null || $row->parent_id == 0) {
+       echo "</div>";
+     }
   }
-  display_comments($comments);
 }
 ?>

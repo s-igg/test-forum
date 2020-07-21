@@ -16,7 +16,7 @@
 </script>
 <nav>
     <div>
-        <a href="/">
+        <a href="/____/">
             <img src="img/.webp" alt="" class='logo_img'>
         </a>
     </div>
@@ -31,7 +31,7 @@
             <div id="some_buttons">
                 <a href="post_creating.php"><i class="far fa-edit"></i></a>
             </div>
-            <ul>
+            <ul class="nav">
                 <li class="dropdown">
                     <a href="#" class="dropbtn"><?php echo $_SESSION['username'] ?></a>
                     <div class="dropdown-content">

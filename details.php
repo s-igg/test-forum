@@ -1,5 +1,6 @@
 <?php
 include 'inc/header.php';
+include 'inc/nav.php';
 
 if (isset($_GET['ID'])) {
     $id = $_GET['ID'];
@@ -47,7 +48,8 @@ if (isset($_POST['replyy'])) {
 <h3>---------------------------------------------------------------------------------------------------</h3>
 
 <div class='comment_class'>
-  <?php comment_tree(); ?>
+  <!-- < ?php comment_tree(); ?> -->
+  <?php category_tree(0); ?>
 </div>
 
 <?php include 'inc/footer.php' ?>
