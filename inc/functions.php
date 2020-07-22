@@ -257,7 +257,7 @@ function displayComments(){
 }
 
 //comments tree 2.0
-function category_tree($parrent){
+function comment_tree($parrent){
   global $conn;
   $ID = $_GET['ID'];
   $sql = "SELECT * FROM comments_2 WHERE post_id = '$ID' AND parent_id='$parrent'";
@@ -266,10 +266,10 @@ function category_tree($parrent){
   while($row = mysqli_fetch_object($result)){
     $i = 0;
     if ($row->parent_id == null || $row->parent_id == 0) {
-      echo "<div class='comment-border'>";
+      echo "<div class='comment-border' >";
     }
     if ($i == 0){
-        echo '<ul style="list-style:none;padding:0;">
+        echo '<div><ul id="mainUl" style="list-style:none;padding-left:20px;">
         <p class="author_name">'.$row->user.'</p>
         <li><div class=""><h4>' . $row->comment.'</h4>
         <div name="testdiv" class="form-container">
@@ -285,7 +285,7 @@ function category_tree($parrent){
         $i++;
      }
      if ($i > 0) {
-       echo '</ul>';
+       echo '</ul></div>';
      }
      if ($row->parent_id == null || $row->parent_id == 0) {
        echo "</div>";
