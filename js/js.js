@@ -1,15 +1,31 @@
-// var element = document.getElementsByClassName('form-container');
+$(document).ready(function(){
+  $("#demo").click(function(){
+    var totalCount=$("#mainDiv div").length;
+    $("#show").html(totalCount);
+    if (totalCount != 10) {
+      console.log($("#mainDiv div"));
+    }
+  });
+});
+
+
+// var collapsButton = document.querySelectorAll('button[class="collapsDemo"]');
+// var comText= document.querySelectorAll('#mainDiv h4');
 //
-// for (var i = 0; i < element.length; i++) {
-//   element[i].onclick = function() {
+// for (var i = 0; i < collapsButton.length; i++) {
 //
-//     var el = element[0];
-//     while (el) {
-//       if (el.tagName === 'DIV') {
-//         el.classList.remove('bark');
+//     $(collapsButton[i]).click(function(){
+//       var buttonID = $(this);
+//
+//       if (buttonID) {
+//         console.log($(this+ comText));
 //       }
-//       el = el.nextSibling;
-//     }
-//     this.classList.add('bark');
-//   };
-// }
+//     })
+//
+//   }
+$(document).ready(function(){
+  $('#collapsDemo').click(function(){
+    $(this).next('#mainDiv').slideToggle();
+    return false;
+  })
+})

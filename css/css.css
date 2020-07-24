@@ -112,6 +112,9 @@ li.dropdown {
 .dropdown:hover .dropdown-content {
     display: block;
 }
+.fortoggleClass{
+  color: red;
+}
 /* ---------------------------------------------------------------------------------------- */
 .comment-border {
   border:1px solid blue;

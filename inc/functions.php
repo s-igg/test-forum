@@ -265,29 +265,48 @@ function comment_tree($parrent){
 
   while($row = mysqli_fetch_object($result)){
     $i = 0;
-    if ($row->parent_id == null || $row->parent_id == 0) {
-      echo "<div class='comment-border' >";
+    if ($row->parent_id == 0) {
+      echo "<div class='comment-border'>";
     }
     if ($i == 0){
-        echo '<div><ul id="mainUl" style="list-style:none;padding-left:20px;">
-        <p class="author_name">'.$row->user.'</p>
-        <li><div class=""><h4>' . $row->comment.'</h4>
-        <div name="testdiv" class="form-container">
-          <form id="reply-form" method="post" class="reply_form">
-            <input type="hidden" name="data" value='.$row->id.'>
-            <textarea name="reply_text" id="reply_texta" col="30" rows="10" style="width:150px;height:30px;"></textarea>
-            <button class="reply" type="submit" name="replyy" style="color:blue;">Reply</button>
-          </form>
-        </div>
-        </div>';
-        category_tree($row->id);
+
+    echo '
+    <div class="k">
+      <div id="mainDiv" class="helloworld"><ul style="list-style:none;padding-left:20px;">';
+    if ($row->parent_id != 0) {
+        echo "<div class='child'>";
+      }
+      echo ' <p class="author_name">'.$row->user.'</p>
+          <li><h4 id="comm_txt" style="font-size:20px;">'. $row->comment.'</h4>
+          <div name="testdiv" class="form-container">
+            <form id="reply-form '.uniqid(uniqid()).'" method="post" class="reply_form">
+              <input type="hidden" name="data" value='.$row->id.'>
+              <textarea name="reply_text" id="reply_texta '.uniqid(uniqid()).'" col="30" rows="10" style="width:150px;height:30px;"></textarea>
+              <button class="reply" type="submit" name="replyy" style="color:blue;">Reply</button>
+            </form>
+          </div>
+        <button class="collapsDemo" id='.uniqid().'>collaps</button>';
+
+        if($row->parent_id){
+          echo $row->parent_id;
+          echo " string ";
+        }else {
+          echo " str ";
+          echo $row->id;
+        }
+
+      if ($row->parent_id != 0) {
+          echo "</div>";
+        }
+        comment_tree($row->id);
         echo '</li>';
         $i++;
      }
      if ($i > 0) {
-       echo '</ul></div>';
+       echo '</ul>';
+       echo '</div></div>';
      }
-     if ($row->parent_id == null || $row->parent_id == 0) {
+     if ($row->parent_id == 0) {
        echo "</div>";
      }
   }

@@ -44,12 +44,13 @@ if (isset($_POST['replyy'])) {
     <button type="submit" id='submitComm' name="button">Test</button>
   </form>
 </div>
+<button id='demo'>Count</button>
+<span id="show"></span>
 
-<h3>---------------------------------------------------------------------------------------------------</h3>
+<h3>-------------------------------------------------------------------------------------</h3>
 
 <div class='comment_class'>
-  <!-- < ?php comment_tree(); ?> -->
-  <?php category_tree(0); ?>
+  <?php comment_tree(0); ?>
 </div>
 
 <?php include 'inc/footer.php' ?>
