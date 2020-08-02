@@ -9,23 +9,21 @@ $(document).ready(function(){
 });
 
 
-// var collapsButton = document.querySelectorAll('button[class="collapsDemo"]');
-// var comText= document.querySelectorAll('#mainDiv h4');
-//
-// for (var i = 0; i < collapsButton.length; i++) {
-//
-//     $(collapsButton[i]).click(function(){
-//       var buttonID = $(this);
-//
-//       if (buttonID) {
-//         console.log($(this+ comText));
-//       }
-//     })
-//
-//   }
-$(document).ready(function(){
-  $('#collapsDemo').click(function(){
-    $(this).next('#mainDiv').slideToggle();
-    return false;
-  })
-})
+var button = document.querySelectorAll('#collapsDemo');
+var commentBorder = document.getElementsByClassName('comment-border');
+var totalCount=$("#mainDiv .child").length
+
+$(button).click(function(){
+
+  if (totalCount >= 5) {
+    $(this).parent().find('#mainDiv .child').toggleClass('child_show')
+  }else {
+    $(this).children().find('#mainDiv .child').toggleClass('child_show')
+    console.log('to many');
+  }
+  
+});
+
+for (var i = 0; i < button.length; i++) {
+  button[i].value = $(button[i]).parent().find('#mainDiv .child').length;
+}

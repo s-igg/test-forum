@@ -262,6 +262,7 @@ function comment_tree($parrent){
   $ID = $_GET['ID'];
   $sql = "SELECT * FROM comments_2 WHERE post_id = '$ID' AND parent_id='$parrent'";
   $result = $conn->query($sql);
+  $row_count = $result->num_rows;
 
   while($row = mysqli_fetch_object($result)){
     $i = 0;
@@ -284,13 +285,13 @@ function comment_tree($parrent){
               <textarea name="reply_text" id="reply_texta '.uniqid(uniqid()).'" col="30" rows="10" style="width:150px;height:30px;"></textarea>
               <button class="reply" type="submit" name="replyy" style="color:blue;">Reply</button>
             </form>
-          </div>
-        <button class="collapsDemo" id='.uniqid().'>collaps</button>';
+          </div>';
 
         if($row->parent_id){
           echo $row->parent_id;
           echo " string ";
         }else {
+          echo '<input type="button" name="" value="" class="'.uniqid().'" id="collapsDemo">';
           echo " str ";
           echo $row->id;
         }
