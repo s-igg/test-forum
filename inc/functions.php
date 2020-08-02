@@ -288,12 +288,8 @@ function comment_tree($parrent){
           </div>';
 
         if($row->parent_id){
-          echo $row->parent_id;
-          echo " string ";
         }else {
-          echo '<input type="button" name="" value="" class="'.uniqid().'" id="collapsDemo">';
-          echo " str ";
-          echo $row->id;
+          echo '<a class="'.uniqid().'" id="collapsDemo"></a>';
         }
 
       if ($row->parent_id != 0) {

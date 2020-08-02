@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,200&family=Teko&display=swap');
 
 *{
     margin: auto;
@@ -162,4 +162,16 @@ li.dropdown {
 }
 #texta{
   resize: none;
+}
+#collapsDemo{
+  color:black;
+  padding:0;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Teko', sans-serif;
+  padding: 2px;
+}
+#collapsDemo:hover{
+  background-color: #bdc3c7;
+  border-radius: 1px;
 }

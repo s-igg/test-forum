@@ -21,9 +21,9 @@ $(button).click(function(){
     $(this).children().find('#mainDiv .child').toggleClass('child_show')
     console.log('to many');
   }
-  
+
 });
 
 for (var i = 0; i < button.length; i++) {
-  button[i].value = $(button[i]).parent().find('#mainDiv .child').length;
+  button[i].innerHTML = $(button[i]).parent().find('#mainDiv .child').length + ' replice';
 }
