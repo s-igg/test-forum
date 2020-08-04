@@ -1,29 +1,14 @@
-$(document).ready(function(){
-  $("#demo").click(function(){
-    var totalCount=$("#mainDiv div").length;
-    $("#show").html(totalCount);
-    if (totalCount != 10) {
-      console.log($("#mainDiv div"));
-    }
-  });
-});
-
-
+var k = document.querySelectorAll('#k');
+var mainDiv = document.querySelectorAll('#mainDiv');
+var child = document.querySelectorAll('#childID');
 var button = document.querySelectorAll('#collapsDemo');
-var commentBorder = document.getElementsByClassName('comment-border');
-var totalCount=$("#mainDiv .child").length
 
 $(button).click(function(){
+  //console.log($(this).parent().parent().find('.child').toggleClass('child_show'));
 
-  if (totalCount >= 5) {
-    $(this).parent().find('#mainDiv .child').toggleClass('child_show')
-  }else {
-    $(this).children().find('#mainDiv .child').toggleClass('child_show')
-    console.log('to many');
-  }
-
+  $(this).parent().parent().find('.child').toggleClass('child_show')
 });
 
 for (var i = 0; i < button.length; i++) {
-  button[i].innerHTML = $(button[i]).parent().find('#mainDiv .child').length + ' replice';
+  button[i].innerHTML = $(button[i]).parent().parent().find('#mainDiv .child').length + ' replice';
 }
