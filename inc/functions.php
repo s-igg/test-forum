@@ -283,10 +283,10 @@ function comment_tree($parrent){
             <form id="reply-form '.uniqid(uniqid()).'" method="post" class="reply_form">
               <input type="hidden" name="data" value='.$row->id.'>
               <textarea name="reply_text" id="reply_texta '.uniqid(uniqid()).'" col="30" rows="10" style="width:150px;height:30px;"></textarea>
-              <button class="reply" type="submit" name="replyy" style="color:blue;">Reply</button>
+              <a class="reply" >Reply</a>
             </form>';
             if(!$row->parent_id){
-              echo '<a class="'.uniqid().'" id="collapsDemo">423424</a>';
+              echo '<a class="'.uniqid().'" style="position:absolute;margin: -28px 0 0 60px;left:25px;" id="collapsDemo">423424</a>';
             }
           echo '</div>';
 

@@ -152,8 +152,8 @@ li.dropdown {
 .commets_date{
   font-size: 13px;
 }
-.test{
-  border:1px solid red;
+.reply{
+  background:
 }
 #some_buttons{
     float: left;
@@ -163,15 +163,20 @@ li.dropdown {
 #texta{
   resize: none;
 }
-#collapsDemo{
+.reply{
+  width:40px;
+}
+#collapsDemo, .reply{
   color:black;
-  padding:0;
   font-weight: bold;
   cursor: pointer;
   font-family: 'Teko', sans-serif;
   padding: 2px;
 }
-#collapsDemo:hover{
+#collapsDemo:hover, .reply:hover{
   background-color: #bdc3c7;
   border-radius: 1px;
+}
+.test{
+  border:1px solid red;
 }
