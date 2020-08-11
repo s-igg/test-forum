@@ -4,7 +4,7 @@
     margin: auto;
     box-sizing: border-box;
 }
-a{
+a, a:hover{
     text-decoration: none;
 }
 nav{
@@ -121,9 +121,9 @@ li.dropdown {
 /* ---------------------------------------------------------------------------------------- */
 .comment-border {
   border:1px solid blue;
-  max-width: 750px;
+  max-width: 900px;
   padding: 6px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 .reply, #submitComm{
   display: block;
@@ -141,6 +141,7 @@ li.dropdown {
   font-style: italic;
   opacity: 0.5;
   font-family: 'Kanit', sans-serif;
+  margin-bottom: 0;
 }
 .comment_tree{
   border:2px solid red;
@@ -152,9 +153,6 @@ li.dropdown {
 .commets_date{
   font-size: 13px;
 }
-.reply{
-  background:
-}
 #some_buttons{
     float: left;
     margin-top: 11px;
@@ -163,20 +161,35 @@ li.dropdown {
 #texta{
   resize: none;
 }
-.reply{
-  width:40px;
+.reply:focus{
+  outline: none;
 }
-#collapsDemo, .reply{
+.reply, .Areply{
+  width:40px;
+  border:0;
+  background-color:white;
+}
+#collapsDemo, .reply, .Areply{
   color:black;
   font-weight: bold;
   cursor: pointer;
   font-family: 'Teko', sans-serif;
   padding: 2px;
 }
-#collapsDemo:hover, .reply:hover{
+#collapsDemo:hover, .reply:hover, .Areply:hover{
   background-color: #bdc3c7;
   border-radius: 1px;
 }
-.test{
-  border:1px solid red;
+.reply_texta{
+  display: none;
+}
+.disInline{
+  display: inline;
+}
+.tox-tinymce{
+  border-color: #a5bad4 !important;
+}
+.buttons_cont{
+  border: 1px solid #a5bad4;
+  border-radius:  0px 0px 10px 10px;
 }

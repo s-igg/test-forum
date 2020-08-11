@@ -231,31 +231,6 @@ function AddReplyToDB(){
   }
 }
 
-function displayComments(){
-  global $conn;
-
-  $id = $_GET['ID'];
-
-  $query =
-  "SELECT * , user.username FROM comment LEFT JOIN user ON comment.user_id=user.id LEFT JOIN replies ON replies.comment_id=comment.id WHERE post_id='$id' ORDER BY comment.created_at DESC";
-
-  $sql = mysqli_query($conn, $query);
-
-  while ($row = mysqli_fetch_assoc($sql)) {
-    echo "
-    <div style='margin-bottom:10px;border:solid black 1px;width:300px;padding:5px;'>";
-    echo "Commented by <span style='color:grey;'>" . $row['username'] . "</span>";
-    echo "-------------------------------------h
-    <h5> ". $row['comment_text'] ." </h5>";
-    if ($row['reply_text'] != null) {
-      echo "<div class='replys' style='margin-left:10px;padding:9px;border:1px solid black;'>
-      <p> ". $row['reply_text'] ." </p></div>
-      ";
-    }
-    echo "</div>";
-  }
-}
-
 //comments tree 2.0
 function comment_tree($parrent){
   global $conn;
@@ -272,21 +247,21 @@ function comment_tree($parrent){
     if ($i == 0){
 
     echo '
-    <div id="k">
-      <div id="mainDiv" class="helloworld"><ul style="list-style:none;padding-left:20px;">';
+    <div class="helloworld"><ul style="list-style:none;padding-left:20px;">';
     if ($row->parent_id != 0) {
         echo "<div class='child' id='childID'>";
       }
       echo ' <p class="author_name">'.$row->user.'</p>
           <li><h4 id="comm_txt" style="font-size:20px;">'. $row->comment.'</h4>
-          <div name="testdiv" class="form-container">
-            <form id="reply-form '.uniqid(uniqid()).'" method="post" class="reply_form">
-              <input type="hidden" name="data" value='.$row->id.'>
-              <textarea name="reply_text" id="reply_texta '.uniqid(uniqid()).'" col="30" rows="10" style="width:150px;height:30px;"></textarea>
-              <a class="reply" >Reply</a>
-            </form>';
-            if(!$row->parent_id){
-              echo '<a class="'.uniqid().'" style="position:absolute;margin: -28px 0 0 60px;left:25px;" id="collapsDemo">423424</a>';
+            <div name="testdiv" id="formCont" style="margin-bottom:10px;" class="form-container">
+              <form id="reply-form '.uniqid(uniqid()).'" method="post" class="reply_form">
+                <input type="hidden" name="data" value='.$row->id.'>
+                <textarea name="reply_text" id="'.uniqid(uniqid()).' " class="reply_texta" col="30" rows="10" style="width:150px;height:30px;"></textarea>
+                <button name="replyy" class="reply" id="'.uniqid(uniqid()).'">Send</button>
+              </form>
+            <a id="'.uniqid().'" style="position:absolute;' .($row->parent_id ? 'margin:-28px 0 0 40px;' : 'margin:-28px 0 0 100px;').' left:auto;" class="Areply">Reply</a>';
+            if($row->parent_id == 0){
+              echo '<a class="'.uniqid().'" style="position:absolute;margin: -28px 0 0 48px;" id="collapsDemo"></a>';
             }
           echo '</div>';
 
@@ -300,7 +275,7 @@ function comment_tree($parrent){
      }
      if ($i > 0) {
        echo '</ul>';
-       echo '</div></div>';
+       echo '</div>';
      }
      if ($row->parent_id == 0) {
        echo "</div>";

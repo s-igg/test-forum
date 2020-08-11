@@ -32,7 +32,7 @@
         '//fonts.googleapis.com/css?family=Lato:300,300i,400,400i',
         '//www.tiny.cloud/css/codepen.min.css'
       ],
-      images_upload_url: 'postAcceptor.php',
+      images_upload_url: 'post_creating.php',
       images_upload_credentials: true,
     });
     </script>
