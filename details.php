@@ -56,7 +56,7 @@
     <form class="" action="" id="frm-comm" method="post">
       <textarea name="comment" id="texta" cols="30" rows="10" style='width:500px;'></textarea>
       <div class="buttons_cont">
-        <button type="submit" id='submitComm' style='border:none;background:#fff0;outline:none;' name="button">Post comment</button>
+        <button type="submit" id='submitComm' style='border:none;border-right: 1px solid #a5bad4;background:#fff0;outline:none;cursor:pointer;' name="button">Post comment</button>
       </div>
     </form>
   </div>
